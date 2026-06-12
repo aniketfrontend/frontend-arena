@@ -21,4 +21,24 @@ export const topics: Topic[] = [
     title: "React City",
     description: "Build modern component-based UIs.",
   },
+  {
+    id: "typescript",
+    title: "TypeScript Temple",
+    description: "Strengthen type safety and developer experience.",
+  },
+  {
+    id: "performance",
+    title: "Performance Arena",
+    description: "Master optimization techniques.",
+  },
+  {
+    id: "accessibility",
+    title: "Accessibility Forest",
+    description: "Build inclusive user experiences.",
+  },
+  {
+    id: "ai",
+    title: "AI Lab",
+    description: "Explore AI concepts for developers.",
+  },
 ];
