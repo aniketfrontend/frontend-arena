@@ -1,3 +1,4 @@
+import BattleClient from "@/components/shared/BattleClient";
 import QuestionCard from "@/components/shared/QuestionCard";
 import { questions } from "@/constants/questions";
 
@@ -21,12 +22,12 @@ export default async function BattlePage({ params }: PageProps) {
           {topicId.toUpperCase()} Arena
         </h1>
 
-        <p className="mb-10 text-slate-400">
+        {/* <p className="mb-10 text-slate-400">
           Question 1 / {topicQuestions.length}
-        </p>
+        </p> */}
 
         {topicQuestions.length > 0 ? (
-          <QuestionCard question={topicQuestions[0]} />
+          <BattleClient questions={topicQuestions} />
         ) : (
           <p className="text-slate-400">No questions available yet.</p>
         )}
