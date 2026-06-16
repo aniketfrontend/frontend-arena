@@ -11,6 +11,14 @@ interface BattleClientProps {
 }
 
 export default function BattleClient({ questions }: BattleClientProps) {
+  const incrementScore = useBattleStore((state) => state.incrementScore);
+
+  const score = useBattleStore((state) => state.score);
+
+  const xp = useBattleStore((state) => state.xp);
+
+  const resetBattle = useBattleStore((state) => state.resetBattle);
+
   const currentQuestionIndex = useBattleStore(
     (state) => state.currentQuestionIndex
   );
@@ -24,9 +32,17 @@ export default function BattleClient({ questions }: BattleClientProps) {
   if (!currentQuestion) {
     return (
       <div className="text-center">
-        <h2 className="text-4xl font-bold text-white">Battle Complete ⚔️</h2>
+        <h1 className="text-5xl font-bold text-white">🏆 Victory!</h1>
 
-        <p className="mt-4 text-slate-400">Results screen coming soon...</p>
+        <p className="mt-6 text-slate-300">
+          Score: {score} / {questions.length}
+        </p>
+
+        <p className="mt-3 text-cyan-300">+{xp} XP</p>
+
+        <Button className="mt-8 cursor-pointer" onClick={resetBattle}>
+          Play Again
+        </Button>
       </div>
     );
   }
@@ -39,11 +55,16 @@ export default function BattleClient({ questions }: BattleClientProps) {
           currentQuestionIndex={currentQuestionIndex}
         />
       </div>
-      <QuestionCard question={currentQuestion} />
+      <QuestionCard
+        question={currentQuestion}
+        onAnswerCorrect={incrementScore}
+      />
 
       {selectedAnswer && (
         <div className="mt-8 flex justify-center">
-          <Button onClick={nextQuestion}>Next Question</Button>
+          <Button className="cursor-pointer" onClick={nextQuestion}>
+            Next Question
+          </Button>
         </div>
       )}
     </>

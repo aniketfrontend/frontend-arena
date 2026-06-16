@@ -6,12 +6,29 @@ import { useBattleStore } from "@/store/battle-store";
 
 interface QuestionCardProps {
   question: Question;
+  onAnswerCorrect: () => void;
 }
 
-export default function QuestionCard({ question }: QuestionCardProps) {
+export default function QuestionCard({
+  question,
+  onAnswerCorrect,
+}: QuestionCardProps) {
   const selectedAnswer = useBattleStore((state) => state.selectedAnswer);
 
   const selectAnswer = useBattleStore((state) => state.selectAnswer);
+
+  const handleAnswerClick = (option: string) => {
+    // Prevent multiple selections
+    if (selectedAnswer) return;
+
+    // Save selected answer
+    selectAnswer(option);
+
+    // Increase score if answer is correct
+    if (option === question.correctAnswer) {
+      onAnswerCorrect();
+    }
+  };
 
   return (
     <div
@@ -32,7 +49,8 @@ export default function QuestionCard({ question }: QuestionCardProps) {
           <Button
             key={option}
             variant="outline"
-            onClick={() => selectAnswer(option)}
+            disabled={!!selectedAnswer}
+            onClick={() => handleAnswerClick(option)}
             className={`
               w-full
               max-w-md
@@ -44,11 +62,15 @@ export default function QuestionCard({ question }: QuestionCardProps) {
               transition-all
 
               ${
-                selectedAnswer === option
-                  ? "border-cyan-400 bg-cyan-500/20"
+                selectedAnswer
+                  ? option === question.correctAnswer
+                    ? "border-green-400 bg-green-500/20"
+                    : option === selectedAnswer
+                    ? "border-red-400 bg-red-500/20"
+                    : "border-white/10 bg-white/5"
                   : "border-white/10 bg-white/5"
               }
-            `}
+              `}
           >
             {option}
           </Button>
