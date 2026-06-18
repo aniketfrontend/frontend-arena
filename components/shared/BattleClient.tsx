@@ -31,7 +31,7 @@ export default function BattleClient({ questions }: BattleClientProps) {
 
   if (!currentQuestion) {
     return (
-      <div className="text-center">
+      <div className="text-center mt-20">
         <h1 className="text-5xl font-bold text-white">🏆 Victory!</h1>
 
         <p className="mt-6 text-slate-300">
