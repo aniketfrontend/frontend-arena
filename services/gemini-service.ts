@@ -1,3 +1,4 @@
+import { Question } from "@/types/question";
 import { GoogleGenAI } from "@google/genai";
 
 const apiKey = process.env.GEMINI_API_KEY;
@@ -10,7 +11,7 @@ const ai = new GoogleGenAI({
   apiKey,
 });
 
-export async function generateQuestions(topic: string) {
+export async function generateQuestions(topic: string): Promise<Question[]> {
   const prompt = `
 Generate 5 frontend interview MCQs about ${topic}.
 
