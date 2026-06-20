@@ -35,12 +35,17 @@ export default function QuestionCard({
       className="
         rounded-3xl
         border border-white/10
-        bg-white/5
+        bg-slate-900/70
+        border-slate-700
         p-8
         backdrop-blur-xl
       "
     >
-      <h2 className="mb-10 text-2xl font-bold text-white">
+      <h2
+        className="mb-10 text-2xl font-bold text-white text-3xl
+          font-bold
+          leading-relaxed"
+      >
         {question.question}
       </h2>
 
@@ -64,11 +69,11 @@ export default function QuestionCard({
               ${
                 selectedAnswer
                   ? option === question.correctAnswer
-                    ? "border-green-400 bg-green-500/20"
+                    ? "bg-emerald-500/20 border-emerald-400"
                     : option === selectedAnswer
                     ? "border-red-400 bg-red-500/20"
-                    : "border-white/10 bg-white/5"
-                  : "border-white/10 bg-white/5"
+                    : "border-white/10 bg-slate-900/70 border-slate-700"
+                  : "border-white/10 bg-slate-900/70 border-slate-700"
               }
               `}
           >

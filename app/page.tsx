@@ -7,9 +7,9 @@ export default function Home() {
       className="
         min-h-screen
         bg-gradient-to-br
-        from-slate-950
-        via-indigo-950
-        to-purple-950
+        from-[#0f172a]
+        via-[#1e1b4b]
+        to-[#312e81]
         px-6
         py-14
       "
@@ -41,7 +41,9 @@ export default function Home() {
           blur-3xl
           "
         />
-        <h1 className="text-6xl font-bold text-white">⚔️ Frontend Arena</h1>
+        <h1 className="text-6xl font-bold text-white drop-shadow-lg">
+          ⚔️ Frontend Arena
+        </h1>
 
         <p className="mt-6 text-xl text-slate-300">Become a Frontend Legend.</p>
 

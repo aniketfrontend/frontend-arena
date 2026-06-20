@@ -33,6 +33,9 @@ Return an array.
   const response = await ai.models.generateContent({
     model: "gemini-2.5-flash",
     contents: prompt,
+    config: {
+      responseMimeType: "application/json",
+    },
   });
 
   const text = response.text;
@@ -42,8 +45,15 @@ Return an array.
   }
 
   try {
-    return JSON.parse(text);
-  } catch {
+    const cleanedText = text
+      .replace(/```json/g, "")
+      .replace(/```/g, "")
+      .trim();
+
+    return JSON.parse(cleanedText);
+  } catch (error) {
+    console.error("Raw Gemini response:", text);
+
     throw new Error("Failed to parse Gemini response");
   }
 }

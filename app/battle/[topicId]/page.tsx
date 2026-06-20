@@ -1,6 +1,6 @@
 import BattleClient from "@/components/shared/BattleClient";
 import QuestionCard from "@/components/shared/QuestionCard";
-import { questions } from "@/constants/questions";
+// import { questions } from "@/constants/questions";
 
 type PageProps = {
   params: Promise<{
@@ -11,12 +11,16 @@ type PageProps = {
 export default async function BattlePage({ params }: PageProps) {
   const { topicId } = await params;
 
-  const topicQuestions = questions.filter(
-    (question) => question.topicId === topicId
-  );
+  // const topicQuestions = questions.filter(
+  //   (question) => question.topicId === topicId
+  // );
 
   return (
-    <main className="min-h-screen bg-slate-950 px-6 py-16">
+    <main
+      className="min-h-screen bg-gradient-to-br from-[#0f172a]
+      via-[#1e1b4b]
+      to-[#312e81] px-6 py-16"
+    >
       <div className="mx-auto max-w-3xl">
         <h1 className="mb-4 text-5xl font-bold text-white">
           {topicId.toUpperCase()} Arena
@@ -26,11 +30,11 @@ export default async function BattlePage({ params }: PageProps) {
           Question 1 / {topicQuestions.length}
         </p> */}
 
-        {topicQuestions.length > 0 ? (
-          <BattleClient questions={topicQuestions} />
-        ) : (
+        {/* {topicQuestions.length > 0 ? ( */}
+        <BattleClient topicId={topicId} />
+        {/* ) : (
           <p className="text-slate-400">No questions available yet.</p>
-        )}
+        )} */}
       </div>
     </main>
   );

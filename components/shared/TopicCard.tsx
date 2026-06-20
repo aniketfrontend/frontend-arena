@@ -52,7 +52,8 @@ export default function TopicCard({ topic }: TopicCardProps) {
         transition-all
         duration-300
         hover:border-cyan-400/40
-        hover:bg-white/10
+        bg-slate-900/60
+        hover:bg-slate-800/80
         "
         >
           <CardHeader>
