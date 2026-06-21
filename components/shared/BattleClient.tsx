@@ -127,7 +127,7 @@ export default function BattleClient({ topicId }: BattleClientProps) {
         />
       </div>
       <QuestionCard
-        question={currentQuestion}
+        question={currentQuestion!}
         onAnswerCorrect={incrementScore}
       />
 

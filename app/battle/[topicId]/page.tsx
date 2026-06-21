@@ -19,7 +19,7 @@ export default async function BattlePage({ params }: PageProps) {
     <main
       className="min-h-screen bg-gradient-to-br from-[#0f172a]
       via-[#1e1b4b]
-      to-[#312e81] px-6 py-16"
+      to-[#312e81] px-6 py-12"
     >
       <div className="mx-auto max-w-3xl">
         <h1 className="mb-4 text-5xl font-bold text-white">

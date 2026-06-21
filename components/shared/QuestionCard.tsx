@@ -34,17 +34,18 @@ export default function QuestionCard({
     <div
       className="
         rounded-3xl
-        border border-white/10
+        border border-slate-700
         bg-slate-900/70
-        border-slate-700
         p-8
         backdrop-blur-xl
       "
     >
       <h2
-        className="mb-10 text-2xl font-bold text-white text-3xl
-          font-bold
-          leading-relaxed"
+        className="mb-10
+        text-3xl
+        font-bold
+        leading-relaxed
+        text-white"
       >
         {question.question}
       </h2>
@@ -59,21 +60,21 @@ export default function QuestionCard({
             className={`
               w-full
               max-w-md
-              justify-start
+              justify-between
               rounded-2xl
               py-6
               text-white
               cursor-pointer
-              transition-all
+              transition-all duration-200 hover:scale-[1.02]
 
               ${
                 selectedAnswer
                   ? option === question.correctAnswer
-                    ? "bg-emerald-500/20 border-emerald-400"
+                    ? "bg-emerald-500/40 border-emerald-400"
                     : option === selectedAnswer
                     ? "border-red-400 bg-red-500/20"
-                    : "border-white/10 bg-slate-900/70 border-slate-700"
-                  : "border-white/10 bg-slate-900/70 border-slate-700"
+                    : "border-white/10 bg-slate-800/80 border-slate-600"
+                  : "border-white/10 bg-slate-800/80 border-slate-600"
               }
               `}
           >
